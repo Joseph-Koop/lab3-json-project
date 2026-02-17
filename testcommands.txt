@@ -1,12 +1,12 @@
 WRITE JSON
 
 valid:
-curl -i localhost:3000/v1/healthcheck
+curl -i localhost:4000/classes
 
 
 errors:
-curl -i localhost:4000/apple
-curl -i -X PUT localhost:4000/v1/healthcheck
+curl -i localhost:4000/random
+curl -i -X PUT localhost:4000/classes
 panic
 
 
@@ -16,17 +16,14 @@ READ JSON
 
 valid:
 
-BODY='{"content":"Noice", "author":"Joseph"}'
-curl -i -d "$BODY" localhost:4000/v1/comments
+BODY='{"studio":"4", "trainer":"Joseph", "capacity_limit":25, "membership_tier":"standard", "name":"Gymnastics", "status":"Ongoing"}'
+curl -i -d "$BODY" localhost:4000/classes/post
 
 
 errors:
 
-BODY='{"message":"Noice", "profile":"Joseph"}'
-curl -i -d "$BODY" localhost:4000/v1/comments
+BODY='{"location":"4", "trainer":"Joseph", "limit":25, "membership":"standard", "name":"Gymnastics", "status":"Ongoing"}'
+curl -i -d "$BODY" localhost:4000/classes/post
 
 BODY=''
-curl -i -d "$BODY" localhost:4000/v1/comments
-
-BODY='{"content":"Noice", "author":"Joseph"}, {"content":"Yeet", "author":"Joseph"}'
-curl -i -d "$BODY" localhost:4000/v1/comments
+curl -i -d "$BODY" localhost:4000/classes/post

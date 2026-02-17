@@ -21,14 +21,14 @@ package main
 //     // set content type header
 //     w.Header().Set("Content-Type", "application/json")
 //     // explicitly set the response status code
-//     w.WriteHeader(status) 
+//     w.WriteHeader(status)
 //     w.Write(jsResponse)
 
 //     return nil
 
 // }
 
-// func (a *applicationDependencies)healthcheckHandler(w http.ResponseWriter,
+// func (a *applicationDependencies)viewClassHandler(w http.ResponseWriter,
 //                                                r *http.Request) {
 //    data := map[string]string {
 //                                 "status": "available",
@@ -41,5 +41,3 @@ package main
 //     http.Error(w, "The server encountered a problem and could not process your request", http.StatusInternalServerError)
 //    }
 // }
-
-
