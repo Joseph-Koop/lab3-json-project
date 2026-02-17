@@ -76,3 +76,12 @@ func (a *applicationDependencies)healthcheckHandler(w http.ResponseWriter,
     a.serverErrorResponse(w, r, err)
    }
 }
+
+
+// send an error response if our client messes up with a 400 (bad request)
+func (a *applicationDependencies)badRequestResponse(w http.ResponseWriter,
+                                                     r *http.Request,
+                                                     err error)  {
+
+      a.errorResponseJSON(w, r, http.StatusBadRequest, err.Error())
+}
